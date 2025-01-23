@@ -1,2 +1,2 @@
 # SportEquip
-EcoConnect solves the problem of limited affordable options for sustainable products by offering a curated selection of eco-friendly home goods. Our direct-to-consumer model ensures competitive pricing and convenience.
+At SportEquip, we’re committed to empowering athletes with top-quality sports and fitness equipment tailored to their needs. Whether you’re a beginner or a seasoned pro, our mission is to provide affordable, innovative, and durable tools to help you excel in training and performance. From resistance bands to weighted sleds, SportEquip is your trusted partner in achieving your goals and pushing your limits.
