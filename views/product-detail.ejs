@@ -1,0 +1,33 @@
+<% title = "Products"; %>
+
+<h1 class="text-center my-4">📦 Product List</h1>
+<a href="/products/add" class="btn btn-success mb-3">➕ Add New Product</a>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% products.forEach(product => { %>
+            <tr>
+                <td><%= product.product_id %></td>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td>$<%= parseFloat(product.price).toFixed(2) %></td>
+                <td><%= product.stock_quantity %></td>
+                <td>
+                    <a href="/products/<%= product.product_id %>" class="btn btn-info btn-sm">🔍 View</a>
+                    <a href="/products/edit/<%= product.product_id %>" class="btn btn-warning btn-sm">✏️ Edit</a>
+                    <a href="/products/delete/<%= product.product_id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">🗑 Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

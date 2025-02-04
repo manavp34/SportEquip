@@ -1,0 +1,23 @@
+<h1 class="text-center">➕ Add Order</h1>
+
+<form action="/orders/add" method="POST" class="edit-form">
+    <label for="user_id">Select Customer:</label>
+    <select name="user_id" required>
+        <% users.forEach(user => { %>
+            <option value="<%= user.user_id %>"><%= user.first_name %> <%= user.last_name %></option>
+        <% }); %>
+    </select>
+
+    <label for="total_price">Total Price:</label>
+    <input type="number" name="total_price" step="0.01" required>
+
+    <label for="status">Order Status:</label>
+    <select name="status" required>
+        <option value="Pending">Pending</option>
+        <option value="Processing">Processing</option>
+        <option value="Shipped">Shipped</option>
+        <option value="Delivered">Delivered</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">Submit Order</button>
+</form>

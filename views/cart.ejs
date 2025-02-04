@@ -1,0 +1,63 @@
+<h1 class="text-center">🛒 Your Shopping Cart</h1>
+
+<!-- Select User -->
+<form action="/cart/view" method="POST">
+    <label for="user">Select User:</label>
+    <select name="user_id" required>
+        <% users.forEach(user => { %>
+            <option value="<%= user.user_id %>" <%= user.user_id == selectedUser ? "selected" : "" %>>
+                <%= user.first_name %> <%= user.last_name %>
+            </option>
+        <% }); %>
+    </select>
+    <button type="submit" class="btn btn-primary">View Cart</button>
+</form>
+
+<!-- Cart Table -->
+<% if (cartItems.length > 0) { %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% cartItems.forEach(item => { %>
+            <tr>
+                <td><%= item.product_name %></td>
+                <td><%= item.quantity %></td>
+                <td>$<%= parseFloat(item.price).toFixed(2) %></td>
+                <td>$<%= (item.quantity * parseFloat(item.price)).toFixed(2) %></td>
+                <td>
+                    <a href="/cart/edit/<%= item.product_id %>" class="btn btn-warning">✏️ Edit</a>
+                    <a href="/cart/remove/<%= item.product_id %>?user_id=<%= selectedUser %>" class="btn btn-danger" onclick="return confirm('Are you sure you want to remove this item?');">🗑 Remove</a>
+                </td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+<% } else { %>
+    <p>No items in the cart.</p>
+<% } %>
+
+<!-- Add to Cart Form -->
+<form action="/cart/add" method="POST">
+    <label for="product">Select Product:</label>
+    <select name="product_id" required>
+        <% products.forEach(product => { %>
+            <option value="<%= product.product_id %>"><%= product.name %> - $<%= product.price %></option>
+        <% }); %>
+    </select>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" min="1" required>
+
+    <input type="hidden" name="user_id" value="<%= selectedUser %>">
+    <button type="submit" class="btn btn-warning">🛒 Add to Cart</button>
+</form>
+
+<a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>

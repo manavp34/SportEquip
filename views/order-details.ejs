@@ -1,0 +1,38 @@
+<h1 class="text-center">📜 Order Details</h1>
+
+<!-- ✅ Customer Information -->
+<div class="order-info">
+    <h2>👤 Customer Details</h2>
+    <p><strong>Name:</strong> <%= order.first_name %> <%= order.last_name %></p>
+    <p><strong>Email:</strong> <%= order.email %></p>
+    <p><strong>Phone:</strong> <%= order.phone_number %></p>
+    <p><strong>Address:</strong> <%= order.address %></p>
+</div>
+
+<!-- ✅ Order Summary -->
+<div class="order-summary">
+    <h2>🛒 Order Items</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% items.forEach(item => { %>
+                <tr>
+                    <td><%= item.product_name %></td>
+                    <td>$<%= item.price.toFixed(2) %></td>
+                    <td><%= item.quantity %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<!-- ✅ Back Button -->
+<div class="text-center">
+    <a href="/orders" class="btn btn-secondary">🔙 Back to Orders</a>
+</div>

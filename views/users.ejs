@@ -1,0 +1,34 @@
+<h1 class="text-center">👥 Users</h1>
+
+<!-- ✅ Fixed Add User Button Visibility -->
+<div class="text-center">
+    <a href="/users/add" class="add-user-btn">➕ Add New User</a>
+</div>
+
+<!-- ✅ Fixed: Added User ID Column -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% users.forEach(user => { %>
+            <tr>
+                <td><%= user.user_id %></td> <!-- ✅ User ID is now included -->
+                <td><%= user.first_name %> <%= user.last_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.phone_number || "N/A" %></td>
+                <td>
+                    <a href="/users/view/<%= user.user_id %>" class="btn btn-info">🔍 View</a>
+                    <a href="/users/edit/<%= user.user_id %>" class="btn btn-warning">✏️ Edit</a>
+                    <a href="/users/delete/<%= user.user_id %>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?');">🗑 Delete</a>
+                </td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Detail</title>
+</head>
+<body>
+    <h1>User Details</h1>
+    <p><strong>ID:</strong> <%= user.user_id %></p>
+    <p><strong>Name:</strong> <%= user.first_name %> <%= user.last_name %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+    <p><strong>Phone:</strong> <%= user.phone_number %></p>
+    <p><strong>Address:</strong> <%= user.address %></p>
+    <p><strong>Role:</strong> <%= user.user_role %></p>
+    <a href="/users/edit/<%= user.user_id %>">Edit</a>
+    <a href="/users">Back to Users</a>
+</body>
+</html>

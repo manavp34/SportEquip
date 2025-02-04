@@ -1,0 +1,38 @@
+<h1 class="text-center">📦 Orders</h1>
+
+<!-- ✅ Add New Order Button (Styled) -->
+<div class="text-center">
+    <a href="/orders/add" class="btn btn-success add-btn">➕ Add New Order</a>
+</div>
+
+<!-- ✅ Orders Table -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (orders && orders.length > 0) { %>
+            <% orders.forEach(order => { %>
+                <tr>
+                    <td><%= order.order_id %></td>
+                    <td><%= order.first_name %> <%= order.last_name %></td>
+                    <td>$<%= order.total_price ? parseFloat(order.total_price).toFixed(2) : "0.00" %></td>
+                    <td><%= order.status %></td>
+                    <td>
+                        <a href="/orders/view/<%= order.order_id %>" class="btn btn-info">🔍 View</a>
+                        <a href="/orders/edit/<%= order.order_id %>" class="btn btn-warning">✏️ Edit</a>
+                        <a href="/orders/delete/<%= order.order_id %>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this order?');">🗑 Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td colspan="5" class="text-center">🚫 No orders available.</td></tr>
+        <% } %>
+    </tbody>
+</table>
