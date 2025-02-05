@@ -16,7 +16,7 @@ body {
   padding: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  justify-content: space-between; /* ✅ Keeps logo on left, nav in center, login on right */
+  justify-content: space-between;
 }
 
 /* ✅ Logo on the Left */
@@ -123,7 +123,7 @@ body {
   margin: 10px 0;
   font-size: 16px;
   font-weight: bold;
-  background-color: #28a745; /* ✅ Green to make it visible */
+  background-color: #28a745;
   color: white;
   border-radius: 5px;
   text-decoration: none;
@@ -131,7 +131,7 @@ body {
 }
 
 .add-btn:hover {
-  background-color: #218838; /* ✅ Darker Green */
+  background-color: #218838;
 }
 
 /* ✅ Fix Add User Button Visibility */
@@ -141,7 +141,7 @@ body {
   margin: 10px 0;
   font-size: 16px;
   font-weight: bold;
-  background-color: #ff9800; /* ✅ Orange to make it visible */
+  background-color: #ff9800;
   color: white;
   border-radius: 5px;
   text-decoration: none;
@@ -149,48 +149,24 @@ body {
 }
 
 .add-user-btn:hover {
-  background-color: #e68900; /* ✅ Darker Orange */
+  background-color: #e68900;
 }
 
 /* Primary Buttons */
-.btn-primary { 
-  background: #007bff; 
-}
-.btn-primary:hover { 
-  background: #0056b3; 
-}
+.btn-primary { background: #007bff; }
+.btn-primary:hover { background: #0056b3; }
 
-/* Orange Buttons (e.g., Add to Cart, Edit) */
-.btn-warning { 
-  background: #ff9800; 
-}
-.btn-warning:hover { 
-  background: #e68900; 
-}
+.btn-warning { background: #ff9800; }
+.btn-warning:hover { background: #e68900; }
 
-/* Danger Buttons (e.g., Remove from Cart, Delete User) */
-.btn-danger { 
-  background: #dc3545; 
-}
-.btn-danger:hover { 
-  background: #b52d3a; 
-}
+.btn-danger { background: #dc3545; }
+.btn-danger:hover { background: #b52d3a; }
 
-/* Info Buttons (e.g., View Details) */
-.btn-info { 
-  background: #17a2b8; 
-}
-.btn-info:hover { 
-  background: #138496; 
-}
+.btn-info { background: #17a2b8; }
+.btn-info:hover { background: #138496; }
 
-/* Secondary Buttons */
-.btn-secondary { 
-  background: #6c757d; 
-}
-.btn-secondary:hover { 
-  background: #5a6268; 
-}
+.btn-secondary { background: #6c757d; }
+.btn-secondary:hover { background: #5a6268; }
 
 /* Features Section */
 .features {
@@ -291,6 +267,73 @@ body {
   text-align: center;
 }
 
+/* ✅ About & Contact Page Styling (NEW) */
+.page-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.page-container h1 {
+  color: #e76f51;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* ✅ Contact Form Styling */
+.contact-form {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+.contact-form button {
+  background: #e76f51;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #d45d45;
+}
+
 /* Footer */
 footer {
   background: #264653;
@@ -300,43 +343,8 @@ footer {
   margin-top: 40px;
 }
 
-/* ✅ Ensuring Text Visibility */
-.text-dark {
-  color: #333 !important;
-}
-
-.text-light {
-  color: white !important;
-}
-
-/* Responsive Fix */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-  }
-
-  .product-grid {
-    flex-direction: column;
-  }
-}
-
-/* ✅ Standardize button sizes in tables */
-.table .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 110px;
-  height: 40px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 5px;
-  text-align: center;
-  transition: 0.3s ease;
-  padding: 10px;
-}
-/* Footer Links Visibility */
 footer a {
-  color: white; /* ✅ Ensures links are visible */
+  color: white;
   text-decoration: none;
   font-weight: bold;
   margin: 0 10px;
@@ -344,5 +352,5 @@ footer a {
 }
 
 footer a:hover {
-  color: #ffd166; /* ✅ Hover effect for visibility */
+  color: #ffd166;
 }
