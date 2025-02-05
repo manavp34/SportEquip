@@ -1,16 +1,19 @@
 <h1 class="text-center">✏️ Edit Order</h1>
 
-<form action="/orders/edit/<%= order.order_id %>" method="POST" class="edit-form">
-    <label for="status">Order Status:</label>
-    <select name="status" required>
-        <option value="Pending" <%= order.status === 'Pending' ? 'selected' : '' %>>Pending</option>
-        <option value="Shipped" <%= order.status === 'Shipped' ? 'selected' : '' %>>Shipped</option>
-        <option value="Delivered" <%= order.status === 'Delivered' ? 'selected' : '' %>>Delivered</option>
-        <option value="Processing" <%= order.status === 'Processing' ? 'selected' : '' %>>Processing</option>
-        <option value="Cancelled" <%= order.status === 'Cancelled' ? 'selected' : '' %>>Cancelled</option>
-    </select>
-    
-    <button type="submit" class="btn btn-primary">✅ Save Changes</button>
-</form>
+<div class="container">
+    <form action="/orders/edit/<%= order.order_id %>" method="POST">
+        <label for="total_price">Total Price:</label>
+        <input type="number" step="0.01" name="total_price" value="<%= order.total_price %>" required class="form-control"><br>
 
-<a href="/orders" class="btn btn-secondary">⬅️ Back to Orders</a>
+        <label for="status">Status:</label>
+        <select name="status" class="form-control" required>
+            <option value="Pending" <%= order.status === "Pending" ? "selected" : "" %>>Pending</option>
+            <option value="Shipped" <%= order.status === "Shipped" ? "selected" : "" %>>Shipped</option>
+            <option value="Delivered" <%= order.status === "Delivered" ? "selected" : "" %>>Delivered</option>
+            <option value="Cancelled" <%= order.status === "Cancelled" ? "selected" : "" %>>Cancelled</option>
+        </select><br>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="/orders" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

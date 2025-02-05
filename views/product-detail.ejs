@@ -1,33 +1,21 @@
-<% title = "Products"; %>
+<h1 class="text-center"><%= product.name %></h1>
 
-<h1 class="text-center my-4">📦 Product List</h1>
-<a href="/products/add" class="btn btn-success mb-3">➕ Add New Product</a>
+<!-- ✅ Display Product Image -->
+<div class="text-center">
+    <img src="/images/<%= product.image_url %>" alt="<%= product.name %>" style="max-width: 300px; border-radius: 10px;">
+</div>
 
-<table class="table table-striped">
-    <thead class="table-dark">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% products.forEach(product => { %>
-            <tr>
-                <td><%= product.product_id %></td>
-                <td><%= product.name %></td>
-                <td><%= product.description %></td>
-                <td>$<%= parseFloat(product.price).toFixed(2) %></td>
-                <td><%= product.stock_quantity %></td>
-                <td>
-                    <a href="/products/<%= product.product_id %>" class="btn btn-info btn-sm">🔍 View</a>
-                    <a href="/products/edit/<%= product.product_id %>" class="btn btn-warning btn-sm">✏️ Edit</a>
-                    <a href="/products/delete/<%= product.product_id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">🗑 Delete</a>
-                </td>
-            </tr>
-        <% }) %>
-    </tbody>
-</table>
+<!-- ✅ Product Information -->
+<div class="product-info">
+    <h2>Description</h2>
+    <p><%= product.description %></p>
+
+    <h3>Price: $<%= parseFloat(product.price).toFixed(2) %></h3>
+    <h4>Stock: <%= product.stock_quantity %> available</h4>
+    <h4>Category: <%= product.category %></h4>
+</div>
+
+<!-- ✅ Back Button -->
+<div class="text-center">
+    <a href="/products" class="btn btn-secondary">🔙 Back to Products</a>
+</div>

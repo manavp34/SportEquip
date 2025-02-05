@@ -109,5 +109,41 @@ router.get("/delete/:id", (req, res) => {
         }
     });
 });
+// 📌 Show Edit Order Form
+router.get("/edit/:id", (req, res) => {
+    const orderId = req.params.id;
+    const orderSQL = `
+        SELECT * FROM orders WHERE order_id = ?
+    `;
+
+    db.query(orderSQL, [orderId], (err, orderResult) => {
+        if (err) {
+            console.error("Error fetching order for editing:", err);
+            return res.status(500).send("Error fetching order for editing");
+        }
+        if (orderResult.length === 0) {
+            return res.status(404).send("Order not found");
+        }
+
+        res.render("edit-order", { title: "Edit Order", order: orderResult[0] });
+    });
+});
+
+// 📌 Update Order (POST)
+router.post("/edit/:id", (req, res) => {
+    const orderId = req.params.id;
+    const { total_price, status } = req.body;
+    const updateSQL = `
+        UPDATE orders SET total_price = ?, status = ? WHERE order_id = ?
+    `;
+
+    db.query(updateSQL, [total_price, status, orderId], (err) => {
+        if (err) {
+            console.error("Error updating order:", err);
+            return res.status(500).send("Error updating order");
+        }
+        res.redirect("/orders");
+    });
+});
 
 module.exports = router;
