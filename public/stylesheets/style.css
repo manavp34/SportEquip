@@ -11,17 +11,26 @@ body {
 /* Navigation */
 .navbar {
   display: flex;
-  justify-content: center;
   align-items: center;
   background: #e76f51;
   padding: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  justify-content: space-between; /* ✅ Keeps logo on left, nav in center, login on right */
 }
 
+/* ✅ Logo on the Left */
+.logo {
+  margin-left: 20px;
+}
+
+/* ✅ Center Navigation */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .nav-links li {
@@ -43,6 +52,27 @@ body {
 
 .nav-links a:hover {
   color: #ffd166;
+}
+
+/* ✅ Login Button on the Right */
+.nav-auth {
+  margin-right: 20px;
+}
+
+.btn-login {
+  background: #fff;
+  color: #e76f51;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-login:hover {
+  background: #e76f51;
+  color: white;
 }
 
 /* Hero Section */
@@ -84,6 +114,42 @@ body {
 .btn:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+/* ✅ Fix Add Order Button Visibility */
+.add-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #28a745; /* ✅ Green to make it visible */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #218838; /* ✅ Darker Green */
+}
+
+/* ✅ Fix Add User Button Visibility */
+.add-user-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ff9800; /* ✅ Orange to make it visible */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.add-user-btn:hover {
+  background-color: #e68900; /* ✅ Darker Orange */
 }
 
 /* Primary Buttons */
@@ -225,40 +291,6 @@ body {
   text-align: center;
 }
 
-/* Forms & Input Fields */
-form {
-  width: 60%;
-  margin: 20px auto;
-  padding: 20px;
-  background: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-form select,
-form input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-form button {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-/* ✅ Centered Forms */
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
 /* Footer */
 footer {
   background: #264653;
@@ -288,73 +320,29 @@ footer {
   }
 }
 
-/* Add User Button Styling */
-.add-user-btn {
-  display: inline-block;
-  background: #ff9800; /* Orange for visibility */
-  color: white;
-  font-weight: bold;
-  padding: 15px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  margin-top: 10px;
-}
-
-.add-user-btn:hover {
-  background: #e68900;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
 /* ✅ Standardize button sizes in tables */
 .table .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 110px; /* ✅ Ensures all buttons have the same width */
-  height: 40px; /* ✅ Sets a consistent height for all buttons */
+  width: 110px;
+  height: 40px;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 5px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
   padding: 10px;
 }
-
-/* ✅ Ensure table action buttons are aligned properly */
-.table td {
-  text-align: center;
-  vertical-align: middle;
-}
-
-/* Button Colors */
-.btn-info { background: #17a2b8; }
-.btn-info:hover { background: #138496; }
-
-.btn-warning { background: #ff9800; }
-.btn-warning:hover { background: #e68900; }
-
-.btn-danger { background: #dc3545; }
-.btn-danger:hover { background: #b52d3a; }
-
-/* ✅ Fix Add Order Button Visibility */
-.add-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  margin: 10px 0;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #28a745; /* Green */
-  color: white;
-  border-radius: 5px;
+/* Footer Links Visibility */
+footer a {
+  color: white; /* ✅ Ensures links are visible */
   text-decoration: none;
-  transition: 0.3s ease;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
-.add-btn:hover {
-  background-color: #218838; /* Darker Green */
+footer a:hover {
+  color: #ffd166; /* ✅ Hover effect for visibility */
 }

@@ -21,15 +21,32 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
+
+            <!-- ✅ New Login and Cart Links -->
+            <div class="nav-auth">
+                <% if (typeof user !== "undefined" && user) { %>
+                    <a href="/cart" class="btn-cart">🛒 Cart</a>
+                    <a href="/logout" class="btn-login">🚪 Logout</a>
+                <% } else { %>
+                    <a href="/login" class="btn-login">🔑 Login</a>
+                <% } %>
+            </div>
         </nav>
     </header>
 
     <main class="container">
-        <%- body %>  <!-- ✅ Fix: Ensure body is properly included -->
+        <%- body %>
     </main>
 
+    <!-- ✅ Updated Footer with About Us & Contact Links -->
     <footer>
         <p>&copy; 2024 SportEquip. All Rights Reserved.</p>
+        <p>
+            <a href="/about">About Us</a> | 
+            <a href="/contact">Contact</a> | 
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/help">Help</a>
+        </p>
     </footer>
 </body>
 </html>
