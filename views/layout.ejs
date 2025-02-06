@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title || "SportEquip" %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        
+        <!-- ✅ Updated path to match your folder structure -->
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
 <body>
+
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <a href="/"><img src="/images/logo.png" alt="SportEquip Logo"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/users">Users</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/orders">Orders</a></li>
-                <li><a href="/cart">Cart</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-
-            <!-- ✅ New Login and Cart Links -->
-            <div class="nav-auth">
-                <% if (typeof user !== "undefined" && user) { %>
-                    <a href="/cart" class="btn-cart">🛒 Cart</a>
-                    <a href="/logout" class="btn-login">🚪 Logout</a>
-                <% } else { %>
-                    <a href="/login" class="btn-login">🔑 Login</a>
-                <% } %>
+            <div class="nav-container">
+                <!-- ✅ Logo correctly displayed on the left -->
+                <div class="nav-left">
+                    <a href="/" class="logo">
+                        <img src="/images/logo.png" alt="SportEquip Logo">
+                    </a>
+                </div>
+    
+                <!-- ✅ Centered navigation links -->
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/orders">Orders</a></li>
+                    <li><a href="/cart">Cart</a></li>
+                    <li><a href="/users">Users</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+    
+                <!-- ✅ Login/Logout button on the right -->
+                <div class="nav-right">
+                    <% if (user) { %>
+                        <a href="/auth/logout" class="btn-logout">Logout</a>
+                    <% } else { %>
+                        <a href="/auth/login" class="btn-login">Login</a>
+                    <% } %>
+                </div>
             </div>
         </nav>
     </header>
 
     <main class="container">
-        <%- body %>
+        <%- body %>  <!-- ✅ Ensures pages render correctly -->
     </main>
 
-    <!-- ✅ Updated Footer with About Us & Contact Links -->
     <footer>
-        <p>&copy; 2024 SportEquip. All Rights Reserved.</p>
-        <p>
-            <a href="/about">About Us</a> | 
-            <a href="/contact">Contact</a> | 
-            <a href="/privacy">Privacy Policy</a> | 
-            <a href="/help">Help</a>
-        </p>
+        <p>&copy; 2025 SportEquip. All rights reserved.</p>
+        <p><a href="/privacy">Privacy Policy</a> | <a href="/help">Help</a></p> <!-- ✅ Moved Privacy & Help Here -->
     </footer>
+
 </body>
 </html>

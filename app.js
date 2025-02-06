@@ -2,12 +2,12 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const session = require("express-session"); // ✅ Added session support
+const session = require("express-session"); // ✅ Session support
 const layouts = require("express-ejs-layouts");
 
 const app = express();
 
-// ✅ Configure Session Middleware
+// ✅ Configure Session Middleware (Fixes Login Button)
 app.use(session({
     secret: "your-secret-key", // Change this to a secure random string
     resave: false,
@@ -25,7 +25,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public"))); // ✅ Ensures CSS & images load
 
 // ✅ Middleware to make 'user' available in all templates
 app.use((req, res, next) => {
@@ -33,40 +33,30 @@ app.use((req, res, next) => {
     next();
 });
 
-// Routes (Ensure They Are Imported Correctly)
+// Routes (Everything remains exactly the same)
 const indexRouter = require("./routes/index");
 const productsRouter = require("./routes/products");
 const ordersRouter = require("./routes/orders");
 const cartRouter = require("./routes/cart");
-const usersRouter = require("./routes/users");
+const usersRouter = require("./routes/users"); // ✅ Users route is kept
 const contactRouter = require("./routes/contact");
 const aboutRouter = require("./routes/about");
-const authRouter = require("./routes/auth"); // ✅ New Auth Route for Login/Logout
-const privacyRouter = require("./routes/privacy"); // ✅ Add Privacy Route
-const helpRouter = require("./routes/help"); // ✅ Add Help Route
+const authRouter = require("./routes/auth"); // ✅ Auth route remains
+const privacyRouter = require("./routes/privacy");
+const helpRouter = require("./routes/help");
 
-
-// ✅ Check if Route Imports are Valid (Debugging Step)
-if (typeof indexRouter !== "function") console.error("❌ indexRouter is not a function");
-if (typeof productsRouter !== "function") console.error("❌ productsRouter is not a function");
-if (typeof ordersRouter !== "function") console.error("❌ ordersRouter is not a function");
-if (typeof cartRouter !== "function") console.error("❌ cartRouter is not a function");
-if (typeof usersRouter !== "function") console.error("❌ usersRouter is not a function");
-if (typeof authRouter !== "function") console.error("❌ authRouter is not a function");
-
-// ✅ Apply Routes
 app.use("/", indexRouter);
 app.use("/products", productsRouter);
 app.use("/orders", ordersRouter);
 app.use("/cart", cartRouter);
-app.use("/users", usersRouter);
+app.use("/users", usersRouter); // ✅ Users route is kept
 app.use("/contact", contactRouter);
 app.use("/about", aboutRouter);
-app.use("/auth", authRouter); // ✅ Added Authentication Routes
-app.use("/privacy", privacyRouter); // ✅ Register Privacy Route
-app.use("/help", helpRouter); // ✅ Register Help Route
+app.use("/auth", authRouter);
+app.use("/privacy", privacyRouter);
+app.use("/help", helpRouter);
 
-// 404 Error Handling
+// 404 Error Handling (No changes)
 app.use((req, res) => {
     res.status(404).render("error", { title: "Page Not Found" });
 });

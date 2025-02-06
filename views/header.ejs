@@ -1,19 +1,28 @@
-<header>
-    <div class="logo">
-        <img src="/images/logo.png" alt="SportEquip Logo">
-    </div>
-    <h1>SPORT EQUIP</h1>
-    <p>SEARCH CONTROL</p>
-</header>
+<body>
 
-<nav>
-    <ul>
-        <li><a href="/">HOME</a></li>
-        <li><a href="/users">USERS</a></li>
-        <li><a href="/products">PRODUCTS</a></li>
-        <li><a href="/orders">ORDERS</a></li>
-        <li><a href="/cart">CART</a></li>
-        <li><a href="/about">ABOUT</a></li>
-        <li><a href="/contact">CONTACT</a></li>
-    </ul>
-</nav>
+    <!-- ✅ Updated Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="/logo.png" alt="SportEquip Logo" width="50" height="50"> SportEquip
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                        <% if (user) { %>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-light" href="/auth/logout">Logout</a></li>
+                        <% } else { %>
+                            <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="/auth/login">Login</a></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>

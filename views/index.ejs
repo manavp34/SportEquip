@@ -10,17 +10,17 @@
     <h2>Why Choose SportEquip?</h2>
     <div class="features-container">
         <div class="feature-box">
-            <img src="/images/quality.png" alt="Quality Products">
+            <img src="/images/quality.png" alt="Quality Products" class="feature-image">
             <h3>Top-Quality Gear</h3>
             <p>Designed for durability and peak performance.</p>
         </div>
         <div class="feature-box">
-            <img src="/images/shipping.png" alt="Fast Shipping">
+            <img src="/images/shipping.png" alt="Fast Shipping" class="feature-image">
             <h3>Fast Shipping</h3>
             <p>Get your equipment delivered quickly and hassle-free.</p>
         </div>
         <div class="feature-box">
-            <img src="/images/support.png" alt="Customer Support">
+            <img src="/images/support.png" alt="Customer Support" class="feature-image">
             <h3>24/7 Support</h3>
             <p>Our team is here to help whenever you need us.</p>
         </div>
@@ -31,16 +31,118 @@
     <h2>🔥 Featured Categories</h2>
     <div class="product-grid">
         <div class="product-card">
-            <img src="/images/weighted-sled.png" alt="Weighted Sled">
+            <img src="/images/weighted-sled.png" alt="Weighted Sled" class="featured-image">
             <h3>Strength Training</h3>
             <p>Build explosive power with sleds, bands, and more.</p>
             <a href="/products" class="btn btn-secondary">Explore</a>
         </div>
         <div class="product-card">
-            <img src="/images/swim-kickboard.png" alt="Swim Training">
+            <img src="/images/swim-kickboard.png" alt="Swim Training" class="featured-image">
             <h3>Swim Training</h3>
             <p>Improve your form with high-performance kickboards.</p>
             <a href="/products" class="btn btn-secondary">Shop Now</a>
         </div>
+        <div class="product-card">
+            <img src="/images/agility-ladder.png" alt="Agility Training" class="featured-image">
+            <h3>Agility Training</h3>
+            <p>Enhance your speed and footwork with top-quality ladders.</p>
+            <a href="/products" class="btn btn-secondary">Get Started</a>
+        </div>
+        <div class="product-card">
+            <img src="/images/resistance-bands.png" alt="Resistance Bands" class="featured-image">
+            <h3>Resistance Bands</h3>
+            <p>Boost strength and flexibility with premium resistance bands.</p>
+            <a href="/products" class="btn btn-secondary">Browse</a>
+        </div>
     </div>
 </section>
+
+<style>
+/* HERO SECTION */
+.hero-section {
+    background-image: url('/images/your-background-image.jpg'); /* Ensure correct image filename */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 750px; /* Keeping previous setting */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+/* HERO CONTENT */
+.hero-content {
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* WHY CHOOSE SPORTEQUIP SECTION */
+.features-container {
+    display: flex;
+    justify-content: space-evenly; /* Ensures items take up the full width */
+    align-items: center;
+    text-align: center;
+    max-width: 90%; /* Makes section wider */
+    margin: 50px auto;
+}
+
+/* Feature Box */
+.feature-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1; /* Ensures even spacing */
+}
+
+/* Bigger Images */
+.feature-image {
+    width: 350px !important; /* Ensures proper size */
+    height: 350px !important;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* FEATURED PRODUCTS */
+.featured-products {
+    text-align: center;
+    margin: 60px auto;
+    max-width: 90%; /* Makes section fill the page */
+}
+
+/* FEATURED CATEGORY GRID - EVEN SPACING */
+.product-grid {
+    display: flex;
+    flex-wrap: nowrap; /* Forces all items into one line */
+    justify-content: center; /* Centers everything */
+    gap: 10px; /* Closer together */
+    margin-top: 20px;
+}
+
+/* PRODUCT CARDS - MAKE THEM UNIFORM */
+.product-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 280px; /* Slightly smaller for better fit */
+    height: 420px; /* Ensures all are equal */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* FEATURED PRODUCT IMAGES */
+.featured-image {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+</style>
